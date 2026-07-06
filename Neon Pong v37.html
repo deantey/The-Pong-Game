@@ -768,9 +768,9 @@ function draw(){
   }
   ctx.shadowBlur=0;
   ctx.textAlign="center";ctx.font="bold "+Math.round(42+16*scorePop)+"px Arial";ctx.shadowBlur=18;ctx.fillStyle="#fff";ctx.shadowColor="#fff";ctx.fillText(topScore+" : "+bottomScore,W/2,62);ctx.shadowBlur=0;
-  if(gameMode==="special"){ctx.font="bold 13px Arial";ctx.fillStyle="rgba(255,255,255,.85)";ctx.fillText("COMBO "+combo+"   BEST "+bestCombo,W/2,H-38);}
   if(challengeType==='survival'){ctx.font="bold 13px Arial";ctx.fillStyle="rgba(255,255,255,.85)";const s=playing&&!over?((performance.now()-survivalStartTime)/1000):0;ctx.fillText("TIME "+s.toFixed(1)+"s   BEST "+survivalBest.toFixed(1)+"s",W/2,H-38);}
-  if(challengeType==='rally'){ctx.font="bold 13px Arial";ctx.fillStyle="rgba(255,255,255,.85)";ctx.fillText("RALLY "+combo+"   BEST "+rallyBest,W/2,H-38);}
+  else if(challengeType==='rally'){ctx.font="bold 13px Arial";ctx.fillStyle="rgba(255,255,255,.85)";ctx.fillText("RALLY "+combo+"   BEST "+rallyBest,W/2,H-38);}
+  else if(gameMode==="special"){ctx.font="bold 13px Arial";ctx.fillStyle="rgba(255,255,255,.85)";ctx.fillText("COMBO "+combo+"   BEST "+bestCombo,W/2,H-38);}
   if(appMode==='tournament'){ctx.font="bold 12px Arial";ctx.fillStyle="rgba(0,255,255,.85)";ctx.fillText("ROUND "+(tournamentRound+1)+"/4"+(isBossFight?" - BOSS":""),W/2,84);}
   if(flash>0){ctx.globalAlpha=flash;ctx.fillStyle="#fff";ctx.fillRect(0,0,W,H);ctx.globalAlpha=1;}
   if(over&&pendingOverlay){
